@@ -54,7 +54,7 @@ body, html {
 }
 
 .tabcontent{
-  border:2px solid #323032;
+  border:1px solid #545254;
   height:350px;
   color:black;
   display:flex;
@@ -87,6 +87,7 @@ body, html {
   display:flex;
   flex-direction: column;
   justify-content: center;
+  padding-right:10px;
 }
 
 .image{
