@@ -1,0 +1,99 @@
+body, html {
+  font-family: Arial;
+  margin:0;
+}
+/* .body{
+  height:100%;
+  width:100%
+} */
+
+.header{
+  background-color: black;
+  height: 10vh;
+  display:flex;
+  align-items: center;
+  padding-left: 20px;
+  color:white;
+}
+.experiment{
+  display:flex;
+  justify-content: center;
+  margin-bottom:0;
+}
+
+
+/* Style the tab */
+.tab {
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  background-color: #545254;
+  color:white;
+  margin-top: 60px;
+  width:70%;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 18px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color:#323032;
+}
+
+/* this isn't working yet */
+.active {
+  background-color: #323032;
+}
+
+.tabcontent{
+  border:2px solid #323032;
+  height:350px;
+  color:black;
+  display:flex;
+  flex-direction: row;
+}
+
+.tablinks{
+  color:white;
+}
+
+.experiment-bottom {
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  margin-top:-20;
+  padding-top:-10;
+}
+
+.bottom{
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  width:70%;
+  color:black
+
+}
+
+.book-info-container{
+  margin-left: 28px;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.image{
+  object-fit: contain;
+  margin-left: 28px;
+}
+
+h2{
+  margin-top:-5px;
+}
