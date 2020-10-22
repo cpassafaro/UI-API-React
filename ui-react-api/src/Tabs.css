@@ -34,8 +34,8 @@ body, html {
 }
 
 /* Style the buttons inside the tab */
-.tab button {
-  background-color: inherit;
+button {
+  background-color: #545254;
   border: none;
   outline: none;
   cursor: pointer;
@@ -44,13 +44,19 @@ body, html {
 }
 
 /* Change background color of buttons on hover */
-.tab button:hover {
+/* .tab button:hover {
   background-color:#323032;
-}
+} */
 
 /* this isn't working yet */
 .active {
-  background-color: #323032;
+  background-color:black;
+  color:white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 18px;
 }
 
 .tabcontent{
@@ -78,7 +84,9 @@ body, html {
   justify-content: center;
   align-items:center;
   width:70%;
-  color:black
+  color:black;
+  overflow: scroll;
+  /* object-fit: contain; */
 
 }
 
@@ -88,6 +96,7 @@ body, html {
   flex-direction: column;
   justify-content: center;
   padding-right:10px;
+  overflow-y: scroll;
 }
 
 .image{

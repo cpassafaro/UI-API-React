@@ -12,7 +12,8 @@ class Tabs extends Component{
         this.state = {
         searchTerm: ['Biography'],
         elements: [],
-        tabs: ''
+        tabs: '',
+        siblingsList: [],
         }
 
     }
@@ -44,28 +45,78 @@ class Tabs extends Component{
                 console.log(this.state.elements[i].volumeInfo)
                 array = array.map(item => {
                     // item.className.
-                    return(<TabInfo className = "active" image = {this.state.elements[i].volumeInfo.imageLinks.smallThumbnail} title = {this.state.elements[i].volumeInfo.title} subtitle = {this.state.elements[i].volumeInfo.subtitle} published = {this.state.elements[i].volumeInfo.publishedDate} author = {this.state.elements[i].volumeInfo.authors[0]} info = {this.state.elements[i].volumeInfo.description}/>)
+                    return(
+                    <TabInfo image = {this.state.elements[i].volumeInfo.imageLinks.smallThumbnail} 
+                    title = {this.state.elements[i].volumeInfo.title}
+                    subtitle = {this.state.elements[i].volumeInfo.subtitle} 
+                    published = {this.state.elements[i].volumeInfo.publishedDate} 
+                    author = {this.state.elements[i].volumeInfo.authors[0]} 
+                    info = {this.state.elements[i].volumeInfo.description}/>)
                 })
             }
         }   
         this.setState({tabs: array})
     }
 
+    //this creates an arrray of the buttons
+    makeCreatedButtonArray = e => {
+        console.log(e)
+        let sibling = e.target.parentElement.firstChild
+        let siblings = [];
+        while (sibling) {
+            if (sibling.nodeType === 1 && sibling !== e) {
+                siblings.push(sibling);
+            }
+            sibling = sibling.nextSibling
+        }
+    
+        // return this.setState({siblingsList: siblings});
+        return this.makeActive(e, siblings)
+    
+    };
+
+    //this can't see the event if I do it asynchronously!!
+    makeActive = (e, siblingsList2) => {
+        console.log(e)
+        console.log(siblingsList2)
+        let target = e.target;
+        console.log(target)
+        for(let i = 0; i< siblingsList2.length; i++){
+            if(siblingsList2[i] != target){
+                siblingsList2[i].classList.remove('active')
+            }else if(siblingsList2[i] == target){
+                siblingsList2[i].classList.add('active')
+            }else{
+                console.log(siblingsList2[i])
+            }
+        }
+    }
+
 
     render (){
-        console.log(this.state.elements)
+        console.log(this.state.siblingsList)
         return(<div className = "body">
             <header className = 'header'>Choose a Biography</header>
                 <div className = 'experiment'>
                     <div className="tab">
                         {this.state.elements != '' 
-                        ? <Button onClick = {this.createTabs} button = {this.state.elements[0].volumeInfo.title} />
+                        ? <Button onClick = {(e)=> {
+                            this.createTabs(e)
+                            this.makeCreatedButtonArray(e)
+                        }} 
+                        button = {this.state.elements[0].volumeInfo.title} />
                         : <Button button = 'Loading'/>}
                          {this.state.elements != '' 
-                        ? <Button onClick = {this.createTabs} button = {this.state.elements[2].volumeInfo.title}/>
+                        ? <Button onClick = {(e) => {
+                            this.createTabs(e)
+                            this.makeCreatedButtonArray(e)
+                        }} button = {this.state.elements[2].volumeInfo.title}/>
                         : <Button button = 'Loading'/>}
                          {this.state.elements != '' 
-                        ? <Button onClick = {this.createTabs} button = {this.state.elements[3].volumeInfo.title}/>
+                        ? <Button onClick = {(e) => {
+                            this.createTabs(e)
+                            this.makeCreatedButtonArray(e)
+                        }} button = {this.state.elements[3].volumeInfo.title}/>
                         : <Button button = 'Loading'/>}
                     </div>
                 </div>
