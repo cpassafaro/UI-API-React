@@ -2,7 +2,7 @@
 _______________
 
 ## Deployed Site
-https://5fc640940da679450d3d08f2--confident-blackwell-9ecf19.netlify.app/
+https://book-modal.netlify.app/
 
 ## Sample
 
